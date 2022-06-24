@@ -122,7 +122,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
 
 
 // 3. Retrieve the major earthquake GeoJSON data >4.5 mag for the week.
-  d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json").then(function(data) {
+  d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
 
 
   // 4. Use the same style as the earthquake data.  
@@ -163,8 +163,7 @@ L.geoJson(data, {
   pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng)
             .bindPopup("<h2> Earthquake Magnitude: " +feature.properties.mag+
-                        "</h2><hr><h3> Location: "+ feature.properties.place +"</h3>");
-}
+                        "</h2><hr><h3> Location: "+ feature.properties.place +"</h3>");}
           // 8. Add the major earthquakes layer to the map
         }).addTo(majorEQ);
       // 9. Close the braces and parentheses for the major earthquake data.
